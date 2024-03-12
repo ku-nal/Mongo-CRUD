@@ -37,8 +37,6 @@ class UserController {
   async getAll(req, res) {
     try {
       const users = await User.find({}).select("email firstName id");
-      SuccessResponse.message = "Users retreived";
-      SuccessResponse.users = users;
 
       return res.status(200).json({
         message: "Users retreived",
