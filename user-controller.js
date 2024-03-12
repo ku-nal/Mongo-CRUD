@@ -40,7 +40,10 @@ class UserController {
       SuccessResponse.message = "Users retreived";
       SuccessResponse.users = users;
 
-      return res.status(200).json(SuccessResponse);
+      return res.status(200).json({
+        message: "Users retreived",
+        users: users
+      });
     } catch (error) {
       return res.status(400).json(ErrorResponse);
     }
@@ -76,10 +79,7 @@ class UserController {
         );
 
         SuccessResponse.message = "User updated";
-        return res.status(200).json({
-            success: true,
-            message: "User updated"
-        });
+        return res.status(200).json(SuccessResponse);
       } else {
         if (!req.body.email && !req.body.firstName) {
           ErrorResponse.message =
