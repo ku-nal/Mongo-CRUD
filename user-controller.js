@@ -74,9 +74,12 @@ class UserController {
           { _id: req.params.id },
           req.body
         );
-        console.log(response);
+
         SuccessResponse.message = "User updated";
-        return res.status(200).json(SuccessResponse);
+        return res.status(200).json({
+            success: true,
+            message: "User updated"
+        });
       } else {
         if (!req.body.email && !req.body.firstName) {
           ErrorResponse.message =
